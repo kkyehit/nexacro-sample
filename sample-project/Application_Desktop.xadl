@@ -18,13 +18,14 @@
       </MainFrame>
     </Layout>
   </Application>
-  <Script type="xscript5.1"><![CDATA[this.vFrameSet00 = ""
+  <Script type="xscript5.1"><![CDATA[this.VFrameSet00 = ""
 this.TopFrame = ""
 this.HFrameSet00 = ""
 this.LeftFrame = ""
 this.WorkFrame = ""
 this.BottomFrame = ""
 
+this.objApp = nexacro.getApplication();
 
 this.Environment_onload = function(obj:nexacro.Environment,e:nexacro.LoadEventInfo)
 {
@@ -33,11 +34,11 @@ this.Environment_onload = function(obj:nexacro.Environment,e:nexacro.LoadEventIn
 
 this.Application_onload = function(obj:nexacro.Application,e:nexacro.LoadEventInfo)
 {
-    this.vFrameSet00 = this.mainframe.vFrameSet00;
-	this.TopFrame = this.vFrameSet00.TopFrame;
-	this.HFrameSet00 = this.vFrameSet00.HFrameSet00;
+    this.VFrameSet00 = this.mainframe.VFrameSet00;
+	this.TopFrame = this.VFrameSet00.TopFrame;
+	this.HFrameSet00 = this.VFrameSet00.HFrameSet00;
 	this.LeftFrame = this.HFrameSet00.LeftFrame;
 	this.WorkFrame = this.HFrameSet00.WorkFrame;
-	this.BottomFrame = this.vFrameSet00.BottomFrame;
+	this.BottomFrame = this.VFrameSet00.BottomFrame;
 }]]></Script>
 </ADL>

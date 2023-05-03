@@ -2,7 +2,91 @@
 <FDL version="2.1">
   <Form id="Form_Top" width="1280" height="50" titletext="Form_Top">
     <Layouts>
-      <Layout width="1280" height="50" screenid="Desktop_screen"/>
+      <Layout width="1280" height="50" screenid="Desktop_screen">
+        <Menu id="Menu00" taborder="0" left="160" top="0" width="439" height="51" innerdataset="innerdataset" captioncolumn="captioncolumn" checkboxcolumn="checkboxcolumn" enablecolumn="enablecolumn" hotkeycolumn="hotkeycolumn" iconcolumn="iconcolumn" idcolumn="idcolumn" levelcolumn="levelcolumn" userdatacolumn="userdatacolumn" onmenuclick="Menu00_onmenuclick">
+          <Dataset id="innerdataset">
+            <ColumnInfo>
+              <Column id="captioncolumn" size="256"/>
+              <Column id="checkboxcolumn" size="256"/>
+              <Column id="enablecolumn" size="256"/>
+              <Column id="hotkeycolumn" size="256"/>
+              <Column id="iconcolumn" size="256"/>
+              <Column id="idcolumn" size="256"/>
+              <Column id="levelcolumn" size="256"/>
+              <Column id="userdatacolumn" size="256"/>
+            </ColumnInfo>
+            <Rows>
+              <Row>
+                <Col id="captioncolumn">Menu1</Col>
+                <Col id="levelcolumn">0</Col>
+              </Row>
+              <Row>
+                <Col id="captioncolumn">Item1</Col>
+                <Col id="levelcolumn">1</Col>
+              </Row>
+              <Row>
+                <Col id="captioncolumn">subItem1</Col>
+                <Col id="levelcolumn">2</Col>
+              </Row>
+              <Row>
+                <Col id="captioncolumn">subItem2</Col>
+                <Col id="levelcolumn">2</Col>
+              </Row>
+              <Row>
+                <Col id="captioncolumn">Item2</Col>
+                <Col id="levelcolumn">1</Col>
+              </Row>
+              <Row>
+                <Col id="captioncolumn">subItem1</Col>
+                <Col id="levelcolumn">2</Col>
+              </Row>
+              <Row>
+                <Col id="captioncolumn">subItem2</Col>
+                <Col id="levelcolumn">2</Col>
+              </Row>
+              <Row>
+                <Col id="captioncolumn">Menu2</Col>
+                <Col id="levelcolumn">0</Col>
+              </Row>
+              <Row>
+                <Col id="captioncolumn">Item1</Col>
+                <Col id="levelcolumn">1</Col>
+              </Row>
+              <Row>
+                <Col id="captioncolumn">subItem1</Col>
+                <Col id="levelcolumn">2</Col>
+              </Row>
+              <Row>
+                <Col id="captioncolumn">subItem2</Col>
+                <Col id="levelcolumn">2</Col>
+              </Row>
+              <Row>
+                <Col id="captioncolumn">Item2</Col>
+                <Col id="levelcolumn">1</Col>
+              </Row>
+              <Row>
+                <Col id="captioncolumn">subItem1</Col>
+                <Col id="levelcolumn">2</Col>
+              </Row>
+              <Row>
+                <Col id="captioncolumn">subItem2</Col>
+                <Col id="levelcolumn">2</Col>
+              </Row>
+            </Rows>
+          </Dataset>
+        </Menu>
+        <Static id="Logo" taborder="1" text="Nexacro Sample" left="3" top="1" width="153" height="50"/>
+      </Layout>
     </Layouts>
+    <Script type="xscript5.1"><![CDATA[this.objApp = nexacro.getApplication()
+
+this.Menu00_onmenuclick = function(obj:nexacro.Menu,e:nexacro.MenuClickEventInfo)
+{
+    trace(this.objApp.WorkFrame)
+	var objStatic = this.objApp.WorkFrame.form.Tab00.Tabpage2.form.Static00
+
+	trace("clicked menu item: " + obj.id + ", ")
+	objStatic.set_text(obj.id)
+};]]></Script>
   </Form>
 </FDL>

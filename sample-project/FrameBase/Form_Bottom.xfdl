@@ -2,7 +2,10 @@
 <FDL version="2.1">
   <Form id="Form_Bottom" width="1280" height="100" titletext="Form_Bottom">
     <Layouts>
-      <Layout width="1280" height="100" screenid="Desktop_screen"/>
+      <Layout width="1280" height="100" screenid="Desktop_screen">
+        <ImageViewer id="ImageViewer00" taborder="0" left="3" top="3" width="226" height="96" image="url('imagerc::TOBESOFT.PNG')"/>
+        <Static id="Static00" taborder="1" text="footer" left="229" top="10" width="1041" height="60" textAlign="center"/>
+      </Layout>
     </Layouts>
   </Form>
 </FDL>
