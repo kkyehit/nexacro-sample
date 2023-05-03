@@ -78,6 +78,12 @@
             frame5.set_showstatusbar("false");
             frame0.addChild(frame5.name, frame5);
             frame5.set_formurl("FrameBase::Form_Bottom.xfdl");
+
+
+            var frame6 = new ChildFrame("LoginFrame",null,null,null,null,null,null,"FrameBase::Form_Login.xfdl",frame0);
+            frame6.set_showtitlebar("false");
+            frame0.addChild(frame6.name, frame6);
+            frame6.set_formurl("FrameBase::Form_Login.xfdl");
         };
         
         this.on_initEvent = function()
@@ -93,23 +99,31 @@
         this.LeftFrame = ""
         this.WorkFrame = ""
         this.BottomFrame = ""
-
+        this.LoginFrame = ""
         this.objApp = nexacro.getApplication();
-
-        this.Environment_onload = function(obj,e)
-        {
-            trace(nexacro.getApplication().all['Variable0']); //undefined
-        }
 
         this.Application_onload = function(obj,e)
         {
             this.VFrameSet00 = this.mainframe.VFrameSet00;
-        	this.TopFrame = this.VFrameSet00.TopFrame;
-        	this.HFrameSet00 = this.VFrameSet00.HFrameSet00;
-        	this.LeftFrame = this.HFrameSet00.LeftFrame;
-        	this.WorkFrame = this.HFrameSet00.WorkFrame;
-        	this.BottomFrame = this.VFrameSet00.BottomFrame;
+        	this.TopFrame = this.mainframe.VFrameSet00.TopFrame;
+        	this.HFrameSet00 = this.mainframe.VFrameSet00.HFrameSet00;
+        	this.LeftFrame = this.mainframe.VFrameSet00.HFrameSet00.LeftFrame;
+        	this.WorkFrame = this.mainframe.VFrameSet00.HFrameSet00.WorkFrame;
+        	this.BottomFrame = this.mainframe.VFrameSet00.BottomFrame;
+        	this.LoginFrame = this.mainframe.VFrameSet00.LoginFrame;
+
+        	this.trace(this.VFrameSet00)
         }
+
+        this.logout = function ()
+        {
+        	var childFrame = new nexacro.ChildFrame("LoginFrame", "absolute", 0, 0, 500, 500, null, null, this.mainframe.VFrameSet00);
+        	childFrame.set_showtitlebar(false); // 타이틀 바를 보이지 않도록 설정
+        	childFrame.set_formurl("FrameBase::Form_Login.xfdl"); // ChildFrame에 표시할 Form의 URL을 설정
+        	childFrame.show(); // ChildFrame을 보이도록 함
+        	this.mainframe.VFrameSet00.addChild("LoginFrame", childFrame);
+        	trace(this.mainframe.VFrameSet00.childFrame)
+        };
         });
         this.checkLicense("");
         

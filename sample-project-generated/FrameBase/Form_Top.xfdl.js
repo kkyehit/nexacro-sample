@@ -62,11 +62,10 @@
 
         this.Menu00_onmenuclick = function(obj,e)
         {
-            trace(this.objApp.WorkFrame)
-        	var objStatic = this.objApp.WorkFrame.form.Tab00.Tabpage2.form.Static00
+        	var objStatic = this.objApp.mainframe.VFrameSet00.HFrameSet00.WorkFrame.form.Tab00.Tabpage1.form.Static00_00
 
-        	trace("clicked menu item: " + obj.id + ", ")
-        	objStatic.set_text(obj.id)
+        	trace("clicked menu item: " + obj.id + ", "+e.fromreferenceobject.id)
+        	objStatic.set_text(e.fromreferenceobject.id)
         };
         });
         
