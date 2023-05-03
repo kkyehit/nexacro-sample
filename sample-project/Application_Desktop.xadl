@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ADL version="2.0">
+  <Application id="Application_Desktop" screenid="Desktop_screen">
+    <Layout>
+      <MainFrame id="mainframe" showtitlebar="true" showstatusbar="true" left="0" top="0" width="1280" height="720" titletext="MidLeftFrame">
+        <VFrameSet id="VFrameSet00" separatesize="50,*,100">
+          <Frames>
+            <ChildFrame id="TopFrame" showtitlebar="false" showstatusbar="false" formurl="FrameBase::Form_Top.xfdl"/>
+            <HFrameSet id="HFrameSet00" separatesize="200,*">
+              <Frames>
+                <ChildFrame id="LeftFrame" showtitlebar="false" showstatusbar="false" formurl="FrameBase::Form_Left.xfdl"/>
+                <ChildFrame id="WorkFrame" showtitlebar="false" showstatusbar="false" formurl="FrameBase::Form_Work.xfdl"/>
+              </Frames>
+            </HFrameSet>
+            <ChildFrame id="BottomFrame" showtitlebar="false" showstatusbar="false" formurl="FrameBase::Form_Bottom.xfdl"/>
+          </Frames>
+        </VFrameSet>
+      </MainFrame>
+    </Layout>
+  </Application>
+  <Script type="xscript5.1"><![CDATA[this.vFrameSet00 = ""
+this.TopFrame = ""
+this.HFrameSet00 = ""
+this.LeftFrame = ""
+this.WorkFrame = ""
+this.BottomFrame = ""
+
+
+this.Environment_onload = function(obj:nexacro.Environment,e:nexacro.LoadEventInfo)
+{
+    trace(nexacro.getApplication().all['Variable0']); //undefined
+}
+
+this.Application_onload = function(obj:nexacro.Application,e:nexacro.LoadEventInfo)
+{
+    this.vFrameSet00 = this.mainframe.vFrameSet00;
+	this.TopFrame = this.vFrameSet00.TopFrame;
+	this.HFrameSet00 = this.vFrameSet00.HFrameSet00;
+	this.LeftFrame = this.HFrameSet00.LeftFrame;
+	this.WorkFrame = this.HFrameSet00.WorkFrame;
+	this.BottomFrame = this.vFrameSet00.BottomFrame;
+}]]></Script>
+</ADL>
